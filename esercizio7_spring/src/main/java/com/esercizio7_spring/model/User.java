@@ -2,10 +2,7 @@ package com.esercizio7_spring.model;
 
 import java.util.Set;
 
-import com.esercizio7_spring.PasswordConverter;
-
 import jakarta.persistence.Column;
-import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -38,7 +35,7 @@ public class User {
 	@OneToMany(mappedBy = "user")
 	private Set<Prenotazione> prenotazioni;
 
-	@Convert(converter = PasswordConverter.class)
+
 	private String password;
 
 	public User(String username, String nomeCompleto, String email) {

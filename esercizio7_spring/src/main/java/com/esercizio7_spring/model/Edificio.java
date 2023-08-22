@@ -2,7 +2,10 @@ package com.esercizio7_spring.model;
 
 import java.util.Set;
 
+import com.esercizio7_spring.CodiceConverter;
+
 import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -30,6 +33,10 @@ public class Edificio {
 	private String indirizzo;
 	@Column(nullable = false)
 	private String nome;
+
+	@Column(length = 8)
+	@Convert(converter = CodiceConverter.class)
+	private String codice;
 
 	@OneToMany(mappedBy = "edificio")
 	private Set<Postazione> postazioni;
